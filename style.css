@@ -1,0 +1,721 @@
+
+    
+    html {
+  scroll-behavior: smooth;
+}
+* { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+
+        /* Logo container ko white navbar ka part banane ke liye */
+.logo-container {
+  background-color: transparent; /* Blue color hatane ke liye */
+  border-radius: 20px 0 0 20px; /* Sirf left corners round honge navbar ke hisaab se */
+  display: flex;
+  align-items: center;
+   flex-direction: row;
+}
+
+/* Logo image ki sizing */
+.logo-container img {
+  max-height: 80%; /* Navbar ki height ke hisaab se bada dikhega */
+  object-fit: contain;
+
+}
+
+
+    /* Blur effect on focus */
+    .hero-blur-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      backdrop-filter: blur(0px);
+      pointer-events: none;
+      z-index: 40;
+      transition: all 0.4s ease;
+    }
+
+    .hero-blur-overlay.active {
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+    }
+    /* --- Hero Section Modified --- */
+.hero-section-animated {
+  position: relative;
+  background: #0f172a; /* Fallback color */
+  overflow: hidden;
+  min-height: 80vh; /* Ensure enough height */
+}
+
+/* Moving Background Image Layer */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  /* 24 seconds ka loop: 8 images x 3 seconds each */
+  animation: backgroundSlideshow 24s infinite, zoomEffect 20s infinite alternate;
+  transition: background-image 1.5s ease-in-out;
+}
+
+/* Dark Overlay taaki upar ka text saaf dikhe */
+.hero-bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6));
+}
+
+/* Image Slideshow Animation (Replace image names with yours) */
+@keyframes backgroundSlideshow {
+  0%, 12.5% { background-image: url('images/pexels-albinberlin-906982.jpg'); }
+  12.5%, 25% { background-image: url('images/pexels-andromeda99-20016292.jpg'); }
+  25%, 37.5% { background-image: url('images/Gemini_Generated_Image_n6dq1an6dq1an6dq.png'); }
+  37.5%, 50% { background-image: url('images/pexels-kindelmedia-9716368.jpg'); }
+  50%, 62.5% { background-image: url('images/pexels-pixabay-262353.jpg'); }
+  62.5%, 75% { background-image: url('images/pexels-pixabay-358319.jpg'); }
+  75%, 87.5% { background-image: url('images/pexels-tomfisk-3063470.jpg'); }
+  87.5%, 100% { background-image: url('images/pexels-tomfisk-3856433.jpg'); }
+}
+
+/* Zoom effect for that premium feel */
+@keyframes zoomEffect {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+    .gradient-primary {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    }
+    
+    .gradient-accent {
+      background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 60px -12px rgba(30, 64, 175, 0.2);
+    }
+    
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+      50% { box-shadow: 0 0 0 25px rgba(59, 130, 246, 0); }
+    }
+    
+    .pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    @keyframes slide-up {
+      from { 
+        opacity: 0; 
+        transform: translateY(40px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+    
+    .slide-up {
+      animation: slide-up 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    
+    .tracking-input:focus {
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), inset 0 0 0 1px rgba(59, 130, 246, 0.1);
+    }
+    
+    .glow-effect {
+      animation: glowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+      }
+    }
+
+    .animate-slideUp {
+      animation: slideUp 0.6s ease-out forwards;
+    }
+
+    .animate-slideInLeft {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .animate-slideInRight {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Service Cards - Liquid Fill Effect */
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      transition: left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: -1;
+      clip-path: polygon(0 100%, 100% 80%, 100% 0, 0 20%);
+    }
+
+    .service-card:hover::before {
+      left: 0;
+      clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    }
+
+    .service-card:hover h3,
+    .service-card:hover p,
+    .service-card:hover li {
+      color: white;
+    }
+
+    /* Service Icon Pop-Out Effect */
+    .service-icon {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card:hover .service-icon {
+      background: rgba(255, 255, 255, 0.2) !important;
+      transform: scale(1.15) translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-card:hover .service-icon i {
+      color: white !important;
+      animation: popBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+   
+
+    /* Reveal Button on Hover */
+    .service-reveal {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .service-card:hover .service-reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .focus:focus {
+      box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.2) !important;
+    }
+
+    .focus:focus::placeholder {
+      color: transparent;
+    }
+    
+    .service-icon {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover .service-icon {
+      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    }
+    
+    .card-hover:hover .service-icon i {
+      color: white;
+    }
+    
+    .step-line {
+      background: linear-gradient(90deg, #3b82f6 0%, #dbeafe 100%);
+      height: 3px;
+    }
+    
+    .step-dot {
+      width: 48px;
+      height: 48px;
+      border: 3px solid #3b82f6;
+      background: white;
+      transition: all 0.3s ease;
+    }
+    
+    .step-dot.active {
+      background: #3b82f6;
+      box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.1);
+    }
+    
+    .step-dot.completed {
+      background: #10b981;
+      border-color: #10b981;
+    }
+    
+    .tracking-tab {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+    
+    .tracking-tab.active {
+      border-bottom-color: #3b82f6;
+      color: #1e40af;
+    }
+    
+    .contact-link {
+      transition: all 0.3s ease;
+    }
+    
+    .contact-link:hover {
+      transform: translateX(4px);
+    }
+    
+    .testimonial-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    /* Premium Floating Navbar */
+    nav {
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      margin: 16px;
+      border-radius: 20px;
+      width: calc(100% - 32px);
+      left: 16px !important;
+      right: 16px !important;
+    }
+
+    nav.nav-scrolled {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.5) !important;
+      backdrop-filter: blur(20px) !important;
+      box-shadow: 0 8px 32px rgba(30, 64, 175, 0.1);
+    }
+
+    /* Pill-Shaped Hover Effect for Menu Items */
+    .nav-item {
+      position: relative;
+      transition: color 0.3s ease;
+      padding: 6px 12px;
+      margin: 0 -6px;
+      border-radius: 20px;
+    }
+
+    .nav-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 64, 175, 0.1);
+      border-radius: 20px;
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: -1;
+    }
+
+    .nav-item:hover::before {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .nav-item:hover {
+      color: #1e40af;
+    }
+
+    /* Staggered Entrance for Menu Items */
+    .nav-item {
+      animation: dropIn 0.6s ease-out forwards;
+      opacity: 0;
+    }
+/* Navbar overall fix */
+nav.nav-blur {
+  overflow: hidden; /* Taaki rounding symmetric lage */
+}
+
+    .nav-item:nth-child(1) { animation-delay: 0.1s; }
+    .nav-item:nth-child(2) { animation-delay: 0.15s; }
+    .nav-item:nth-child(3) { animation-delay: 0.2s; }
+    .nav-item:nth-child(4) { animation-delay: 0.25s; }
+
+    @keyframes dropIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hero Glow Animation Enhanced */
+    .hero-box-glow {
+      animation: heroGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes heroGlow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 0 1px rgba(59, 130, 246, 0.1);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.5), inset 0 0 0 1px rgba(59, 130, 246, 0.2);
+      }
+    }
+
+    /* Magnetic Button Effect */
+    .btn-magnetic {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .btn-magnetic::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: inherit;
+    }
+
+    .btn-magnetic:hover {
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-magnetic:hover::before {
+      opacity: 1;
+    }
+
+    /* Form Field Enhancement - Neon Line */
+    .form-field-wrapper {
+      position: relative;
+    }
+
+    .form-field-wrapper input,
+    .form-field-wrapper textarea,
+    .form-field-wrapper select {
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-field-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 2;
+    }
+
+    .form-field-wrapper:focus-within::after {
+      width: 100%;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    }
+
+    /* Placeholder Slide Animation */
+    .form-field-wrapper input::placeholder,
+    .form-field-wrapper textarea::placeholder,
+    .form-field-wrapper select option {
+      transition: all 0.3s ease;
+    }
+
+    .form-field-wrapper input:focus::placeholder,
+    .form-field-wrapper textarea:focus::placeholder {
+      transform: translateY(-24px);
+      opacity: 0.6;
+    }
+
+    /* 3D Service Cards */
+    .card-3d {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .card-3d:hover {
+      transform: translateY(-15px) rotateX(5deg) rotateY(-8deg);
+      box-shadow: 0 40px 80px -20px rgba(30, 64, 175, 0.3);
+    }
+
+    .card-icon-float {
+      transition: all 0.4s ease;
+      transform: translateY(0);
+    }
+
+    .card-3d:hover .card-icon-float {
+      transform: translateY(-8px) scale(1.1);
+    }
+
+    /* Counter Animation */
+    .counter-number {
+      font-weight: 800;
+      font-size: 2.5rem;
+    }
+
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .counter-animate {
+      animation: countUp 0.6s ease-out forwards;
+    }
+
+    /* Live Pulse Effect for Current Status */
+    .pulse-current {
+      animation: livePulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes livePulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+      }
+      50% {
+        transform: scale(1.15);
+        box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+      }
+    }
+
+    /* Electric Tracing Line */
+    .timeline-trace {
+      position: absolute;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 50%, transparent 100%);
+      top: 24px;
+      left: 0;
+      animation: traceGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes traceGlow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.8);
+      }
+      50% {
+        box-shadow: 0 0 10px 0 rgba(59, 130, 246, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+      }
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 40;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes floatBtn {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .floating-btn {
+      animation: floatBtn 3s ease-in-out infinite;
+    }
+
+    .floating-btn:hover {
+      animation: none;
+      transform: scale(1.15);
+    }
+
+    /* Animated Timeline */
+    .timeline-track {
+      position: relative;
+      padding: 20px 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      animation: slideIn 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+    .timeline-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 16px;
+      animation: iconPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      opacity: 0;
+      flex-shrink: 0;
+    }
+
+
+    .timeline-item:nth-child(1) .timeline-icon { animation-delay: 0.2s; }
+    .timeline-item:nth-child(2) .timeline-icon { animation-delay: 0.35s; }
+    .timeline-item:nth-child(3) .timeline-icon { animation-delay: 0.5s; }
+    .timeline-item:nth-child(4) .timeline-icon { animation-delay: 0.65s; }
+
+    .truck-animation {
+      animation: truckMove 2s ease-in-out infinite;
+    }
+    /* Purana @keyframes slide-up hata kar ye naya Smooth Swipe daal */
+@keyframes smoothSwipeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px); /* Neeche se start hoga */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Firse smooth normal position par */
+  }
+}
+
+/* Is class ko Hero Title, Subtitle aur Tracking Box par use kar */
+.slide-up {
+  opacity: 0;
+  animation: smoothSwipeUp 1s ease-out forwards;
+}
+
+/* Delays pehle jaise hi rakho */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Stats Sections ke liye Left se Right Swipe */
+.swipe-right-staggered {
+  opacity: 0;
+  animation: swipeInLeft 1s ease-out forwards;
+}
+
+@keyframes swipeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px); /* Left se start hoga */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Smoothly settle hoga */
+  }
+}
+
+/* In dabbo ko delay de do staggered effect ke liye */
+.stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stat-item:nth-child(2) { animation-delay: 0.3s; }
+.stat-item:nth-child(3) { animation-delay: 0.5s; }
+
+    @keyframes truckMove {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(8px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .timeline-content {
+      flex: 1;
+    }
+
+    /* Glow Effects */
+    .glow-text {
+      color: #3b82f6;
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .gradient-hero {
+        padding-top: 60px;
+      }
+      
+      .floating-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 56px;
+        height: 56px;
+      }
+    }
