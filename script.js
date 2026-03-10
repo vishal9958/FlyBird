@@ -286,7 +286,7 @@ if (quoteForm && phoneInput) {
             title: "New Inquiry from FlyBird Website"
         };
 
-        emailjs.send('service_s02gw6j', 'template_22kzrzf', templateParams)
+        emailjs.send('service_62vc9nb', 'template_22kzrzf', templateParams)
             .then(() => {
                 quoteForm.reset();
                 phoneInput.value = '+91 '; // Reset ke baad +91 wapas dalo
