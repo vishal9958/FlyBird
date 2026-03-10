@@ -188,72 +188,88 @@
     }
 
     /* Service Cards - Liquid Fill Effect */
-    .service-card {
-      position: relative;
-      overflow: hidden;
-      height: 100%;
-    }
+/* Service Cards - Liquid Fill Effect */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-col: column;
+  z-index: 1; /* Card ko base layer bana diya */
+}
 
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      transition: left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-      z-index: -1;
-      clip-path: polygon(0 100%, 100% 80%, 100% 0, 0 20%);
-    }
+/* Background Liquid Effect */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #125587 0%, #3b82f6 100%);
+  transition: left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: -1;
+  clip-path: polygon(0 100%, 100% 80%, 100% 0, 0 20%);
+}
 
-    .service-card:hover::before {
-      left: 0;
-      clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
-    }
+.service-card:hover::before {
+  left: 0;
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+}
 
-    .service-card:hover h3,
-    .service-card:hover p,
-    .service-card:hover li {
-      color: white;
-    }
+/* Text Color & Visibility Logic */
+.service-card:hover h3,
+.service-card:hover p {
+  color: white;
+}
 
-    /* Service Icon Pop-Out Effect */
-    .service-icon {
-      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      position: relative;
-      z-index: 1;
-    }
+/* List (Bullets) - Hover pe hide karne ke liye */
+.service-card ul {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
 
-    .service-card:hover .service-icon {
-      background: rgba(255, 255, 255, 0.2) !important;
-      transform: scale(1.15) translateY(-15px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
+.service-card:hover ul {
+  opacity: 0; 
+  pointer-events: none; 
+}
 
-    .service-card:hover .service-icon i {
-      color: white !important;
-      animation: popBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
+/* Service Icon Effect */
+.service-icon {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 1;
+}
 
-   
+.service-card:hover .service-icon {
+  background: rgba(177, 207, 247, 0.699) !important;
+  transform: scale(1.15) translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
 
-    /* Reveal Button on Hover */
-    .service-reveal {
-      position: absolute;
-      bottom: 24px;
-      left: 24px;
-      right: 24px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
+.service-card:hover .service-icon i {
+  color: white !important;
+}
 
-    .service-card:hover .service-reveal {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Reveal Button (WhatsApp) on Hover */
+.service-reveal {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10; 
+}
+
+.service-card:hover .service-reveal {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
     .focus:focus {
       box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.2) !important;
@@ -720,3 +736,18 @@ nav.nav-blur {
         height: 56px;
       }
     }
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Half translate for perfect loop */
+  }
+
+  .animate-scroll {
+    animation: scroll 8s linear infinite;
+    display: flex;
+    width: max-content;
+  }
+
+  /* Hover pe rukne ka feature */
+  .group:hover .animate-scroll {
+    animation-play-state: paused;
+  }
